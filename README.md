@@ -133,9 +133,11 @@ Define a `CodingKeys` enum which adheres to `String, CodingKey`:
 ```swift
 struct Author: Codable {
     let firstName: String
+    let age: Int
 
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
+        case age
     }
 }
 ```
@@ -143,7 +145,7 @@ struct Author: Codable {
 Encoding:
 
 ```swift
-let a: Author = Author(firstName: "Mark")
+let a: Author = Author(firstName: "Mark", age: 45)
 let d: Data = try! JSONEncoder().encode(a)
 ```
 
@@ -155,15 +157,16 @@ print(s)
 ```
 
 ```
-{"first_name":"Mark"}
+{"age":45,"first_name":"Mark"}
 ```
 
 Decoding:
 
 ```swift
-        let s2: String = """
+let s2: String = """
 {
-    "first_name": "Mark"
+    "first_name": "Mark",
+    "age": 45
 }
 """
 let d2: Data = s2.data(using: .utf8)!
