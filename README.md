@@ -5,6 +5,21 @@ Some examples of Swift code.
 Note: type annotations have been added for clarity, but are not required (unless noted).
 
 
+# String to Data
+
+```swift
+let s: String = "hello"
+let d: Data = s.data(using: .utf8)!
+```
+
+# Data to String
+
+```swift
+let d: Data = Data(bytes: [104, 101, 108, 108, 111, 0]) // "hello"
+let s: String = String(data: d, encoding: .utf8)!
+```
+
+
 # Codable (Encodable & Decodable)
 
 
