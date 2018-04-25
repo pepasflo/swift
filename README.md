@@ -5,6 +5,18 @@ Some examples of Swift code.
 Note: type annotations have been added for clarity, but are not required (unless noted).
 
 
+Table of Contents
+=================
+
+   * [Swift snippets]()
+   * [Codable (Encodable &amp; Decodable)]()
+      * [Encoding primitives:]()
+      * [Encoding / Decoding a basic struct:]()
+      * [Encoding / Decoding a nested struct:]()
+      * [Codable extensions]()
+      * [Custom key mapping]()
+
+
 # Codable (Encodable & Decodable)
 
 
