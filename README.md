@@ -92,7 +92,7 @@ let b2: Book = try! JSONDecoder().decode(Book.self, from: d)
 ```
 
 
-## `Codable` `extension`s
+## `Codable` extensions
 
 We can write a pair of extensions to make this a bit more succinct, for the common case where we simply want an optional returned (and aren't interested in examining the exception).
 
@@ -124,4 +124,49 @@ let a2: Author = d.decoded()!
 ```
 
 Note: the type annotation on `a2` is required.
+
+
+## Custom key mapping
+
+Define a `CodingKeys` enum which adheres to `String, CodingKey`:
+
+```swift
+struct Author: Codable {
+    let firstName: String
+
+    enum CodingKeys: String, CodingKey {
+        case firstName = "first_name"
+    }
+}
+```
+
+Encoding:
+
+```swift
+let a: Author = Author(firstName: "Mark")
+let d: Data = try! JSONEncoder().encode(a)
+```
+
+Check the result:
+
+```swift
+let s: String = String(data: d, encoding: .utf8)!
+print(s)
+```
+
+```
+{"first_name":"Mark"}
+```
+
+Decoding:
+
+```swift
+        let s2: String = """
+{
+    "first_name": "Mark"
+}
+"""
+let d2: Data = s2.data(using: .utf8)!
+let a2: Author = try! JSONDecoder().decode(Author.self, from: d2)
+```
 
