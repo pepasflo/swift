@@ -2,6 +2,8 @@
 
 Some examples of Swift code.
 
+Note: type annotations have been added for clarity, but are not required (unless noted).
+
 
 # Codable (Encodable & Decodable)
 
@@ -25,8 +27,6 @@ However, this may be supported in the future, see:
 
 
 ## Encoding / Decoding a basic `struct`:
-
-Here's a basic `struct`:
 
 ```swift
 struct Movie: Codable {
@@ -62,3 +62,66 @@ let s: String = """
 let d3: Data = s.data(using: .utf8)!
 let m3: Movie = try! JSONDecoder().decode(Movie.self, from: d3)
 ```
+
+## Encoding / Decoding a nested `struct`:
+
+As long as the `struct`s are all `Codable`, they can be nested:
+
+```swift
+struct Author: Codable {
+    let name: String
+}
+
+struct Book: Codable {
+    let title: String
+    let author: Author
+}
+```
+
+Encoding:
+
+```swift
+let b: Book = Book(title: "Not Always So", author: Author(name: "Shunryu Suzuki"))
+let d: Data = try! JSONEncoder().encode(b)
+```
+
+Decoding:
+
+```swift
+let b2: Book = try! JSONDecoder().decode(Book.self, from: d)
+```
+
+
+## `Codable` `extension`s
+
+We can write a pair of extensions to make this a bit more succinct, for the common case where we simply want an optional returned (and aren't interested in examining the exception).
+
+```swift
+struct Author: Codable {
+    let name: String
+}
+```
+
+Encoding:
+
+```swift
+extension Encodable {
+    public var encoded: Data? {
+        return try? JSONEncoder().encode(self)
+    }
+}
+```
+
+```swift
+let a: Author = Author(name: "Mark Twain")
+let d: Data = a.encoded!
+```
+
+Decoding:
+
+```swift
+let a2: Author = d.decoded()!
+```
+
+Note: the type annotation on `a2` is required.
+
