@@ -25,6 +25,8 @@ Resources:
 
 # Codable (Encodable & Decodable)
 
+Resources:
+- https://hackernoon.com/everything-about-codable-in-swift-4-97d0e18a2999
 
 ## Encoding primitives:
 
@@ -148,6 +150,8 @@ decoder.dateDecodingStrategy = .iso8601
 let m: Movie = try! decoder.decode(Movie.self, from: d)
 ```
 
+Resources:
+- https://useyourloaf.com/blog/swift-codable-with-custom-dates/
 
 ## `Codable` extensions
 
