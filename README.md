@@ -234,3 +234,34 @@ let d2: Data = s2.data(using: .utf8)!
 let a2: Author = try! JSONDecoder().decode(Author.self, from: d2)
 ```
 
+# Using a local JSON file in unit tests
+
+```swift
+struct Movie: Codable {
+    let title: String
+}
+```
+
+`movie.json` (make sure this file is added to your unit test target, not your main target):
+
+```json
+{
+    "title": "Groundhog Day"
+}
+```
+
+```swift
+import XCTest
+@testable import CodableDemo
+
+class MovieTests: XCTestCase {
+    func testMovieDecode() {
+        let b: Bundle = Bundle(for: type(of: self))
+        let u: URL = b.url(forResource: "movie", withExtension: "json")!
+        let d: Data = try! Data(contentsOf: u)
+        let m: Movie = try! JSONDecoder().decode(Movie.self, from: d)
+
+        XCTAssertEqual(m.title, "Groundhog Day")
+    }
+}
+```
