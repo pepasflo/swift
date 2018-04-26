@@ -19,6 +19,9 @@ let d: Data = Data(bytes: [104, 101, 108, 108, 111, 0]) // "hello"
 let s: String = String(data: d, encoding: .utf8)!
 ```
 
+Resources:
+- https://www.objc.io/blog/2018/02/13/string-to-data-and-back/
+
 
 # Codable (Encodable & Decodable)
 
