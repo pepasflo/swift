@@ -111,7 +111,42 @@ let b2: Book = try! JSONDecoder().decode(Book.self, from: d)
 
 ## Decoding ISO8601 dates
 
+```swift
+struct Movie: Codable {
+    let title: String
+    let releaseDate: Date
 
+    enum CodingKeys: String, CodingKey {
+        case title
+        case releaseDate = "release_date"
+    }
+}
+```
+
+This doesn't work out of the box:
+
+```swift
+let s: String = """
+{
+    "title": "Groundhog Day",
+    "release_date": "1993-02-12T22:47:51+0000"
+}
+"""
+
+let d: Data = s.data(using: .utf8)!
+let m: Movie = try! JSONDecoder().decode(Movie.self, from: d)
+```
+
+> Thread 1: Fatal error: 'try!' expression unexpectedly raised an error: Swift.DecodingError.typeMismatch(Swift.Double, Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: "release_date", intValue: nil)], debugDescription: "Expected to decode Double but found a string/data instead.", underlyingError: nil))
+
+You need to set the `dateDecodingStrategy` on the `JSONDecoder`:
+
+```swift
+let d: Data = s.data(using: .utf8)!
+let decoder = JSONDecoder()
+decoder.dateDecodingStrategy = .iso8601
+let m: Movie = try! decoder.decode(Movie.self, from: d)
+```
 
 
 ## `Codable` extensions
