@@ -5,6 +5,18 @@ Some examples of Swift code.
 Note: type annotations have been added for clarity, but are not required (unless noted).
 
 
+# Deprecation
+
+Marking a function as deprecated:
+
+```swift
+@available(*, deprecated)
+func myFunc() {}
+```
+
+More: https://stackoverflow.com/a/25406285/7543271
+
+
 # String to Data
 
 ```swift
