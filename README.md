@@ -5,6 +5,14 @@ Some examples of Swift code.
 Note: type annotations have been added for clarity, but are not required (unless noted).
 
 
+# Enumerating the keys and values in a Dictionary
+
+```swift
+for (k, v) in somedict {
+    ...
+}
+```
+
 # Deprecation
 
 Marking a function as deprecated:
