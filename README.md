@@ -13,6 +13,15 @@ for (k, v) in somedict {
 }
 ```
 
+# List of Dictionary keys as Array
+
+It turns out that `Dictionary.keys` does not return an `Array` of the keys (it returns an object of type `Dictionary.Keys`).
+
+```swift
+Array(somedict.keys)
+```
+
+
 # Deprecation
 
 Marking a function as deprecated:
