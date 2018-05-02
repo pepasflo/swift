@@ -4,6 +4,12 @@ Some examples of Swift code.
 
 Note: type annotations have been added for clarity, but are not required (unless noted).
 
+# `typealias`
+
+```swift
+typealias APIToken = String
+```
+
 
 # Enumerating the keys and values in a Dictionary
 
