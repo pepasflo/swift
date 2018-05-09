@@ -61,6 +61,7 @@ Resources:
 # Codable (Encodable & Decodable)
 
 Resources:
+- https://benscheirman.com/2017/06/swift-json/
 - https://hackernoon.com/everything-about-codable-in-swift-4-97d0e18a2999
 
 ## Encoding primitives:
