@@ -301,3 +301,13 @@ class MovieTests: XCTestCase {
     }
 }
 ```
+
+# Dynamic UITableViewCell height
+
+```swift
+self.tableView.rowHeight = UITableViewAutomaticDimension
+self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
+```
+
+- Remove any related function definitions (e.g. `heightForRowAtIndexPath`).
+- Ensure your cells have a continuous chain of vertical constraints from top to bottom.
