@@ -313,7 +313,23 @@ self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
 - Ensure your cells have a continuous chain of vertical constraints from top to bottom.
 
 
-# Performance considerations of `updateConstraints`
+# `updateConstraints`
+
+## Call to `super`
+
+`supre.updateConstraints` should be called last.  Use defer.
+
+```swift
+public override func updateConstraints() {
+    defer {
+        super.updateConstraints()
+    }
+
+    ...
+}
+```
+
+## Performance considerations
 
 [WWDC 2018 #220](https://developer.apple.com/videos/play/wwdc2018/220/) is a great resource for building an intuition around the performance impact of calling [`updateConstraints`](https://developer.apple.com/documentation/uikit/uiview/1622512-updateconstraints).  TL;DR: keep this method as optimized as possible.
 
