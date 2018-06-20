@@ -313,6 +313,13 @@ self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
 - Ensure your cells have a continuous chain of vertical constraints from top to bottom.
 
 
+# Variable declaration with protocol conformance
+
+```swift
+var playableCell: UITableViewCell & Playable = ...
+```
+
+
 # `updateConstraints`
 
 ## Call to `super`
