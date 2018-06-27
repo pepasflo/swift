@@ -28,6 +28,16 @@ Array(somedict.keys)
 ```
 
 
+# Dictionary key membership
+
+To check if a key exists in a dictionary:
+
+```swift
+if dict.keys.contains(key) {
+    ...
+}
+```
+
 # Deprecation
 
 Marking a function as deprecated:
