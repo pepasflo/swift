@@ -375,3 +375,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
+
+Also remember to empty out the "Main Interface" field under the "General" tab of your target's settings.
