@@ -351,3 +351,27 @@ public override func updateConstraints() {
 [WWDC 2018 #220](https://developer.apple.com/videos/play/wwdc2018/220/) is a great resource for building an intuition around the performance impact of calling [`updateConstraints`](https://developer.apple.com/documentation/uikit/uiview/1622512-updateconstraints).  TL;DR: keep this method as optimized as possible.
 
 Gotcha: remember that the call to super should come last.
+
+
+# Programatically creating UIWindow
+
+```swift
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
+    ) -> Bool {
+
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.makeKeyAndVisible()
+        window.rootViewController = UIViewController()
+        self.window = window
+
+        return true
+    }
+}
+```
