@@ -377,3 +377,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 
 Also remember to empty out the "Main Interface" field under the "General" tab of your target's settings.
+
+
+# Switching on the type of something:
+
+without casting:
+
+```swift
+switch item {
+case is Int:
+    ...
+case is Double:
+    ...
+```
+
+with casting:
+
+```swift
+switch item {
+case let i as Int:
+    ...
+case let d as Double:
+    ...
+```
