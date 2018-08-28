@@ -400,3 +400,26 @@ case let i as Int:
 case let d as Double:
     ...
 ```
+
+# Switching on a tuple:
+
+Sometimes you need to switch on the cases of two enums:
+
+```swift
+enum Content {
+    case article(URL)
+    case video(URL)
+}
+
+let a: Content = .article(URL(string: "http://google.com")!)
+let b: Content = .video(URL(string: "http://yahoo.com")!)
+
+switch (a, b) {
+case (.article(let url1), .article(let url2)):
+    ...
+case (.video(let url1), .video(let url2)):
+    ...
+default:
+    ...
+}
+```
