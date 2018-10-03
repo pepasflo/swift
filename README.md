@@ -423,3 +423,13 @@ default:
     ...
 }
 ```
+
+# Adding a custom extension to `Observable` (RxSwift):
+
+```swift
+extension Observable where E == Int {
+    public func foo() -> Observable<Int> {
+        ...
+    }
+}
+```
