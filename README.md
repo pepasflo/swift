@@ -334,7 +334,7 @@ var playableCell: UITableViewCell & Playable = ...
 
 ## Call to `super`
 
-`supre.updateConstraints` should be called last.  Use defer.
+`super.updateConstraints` should be called last.  Use defer:
 
 ```swift
 public override func updateConstraints() {
@@ -349,8 +349,6 @@ public override func updateConstraints() {
 ## Performance considerations
 
 [WWDC 2018 #220](https://developer.apple.com/videos/play/wwdc2018/220/) is a great resource for building an intuition around the performance impact of calling [`updateConstraints`](https://developer.apple.com/documentation/uikit/uiview/1622512-updateconstraints).  TL;DR: keep this method as optimized as possible.
-
-Gotcha: remember that the call to super should come last.
 
 
 # Programatically creating UIWindow
