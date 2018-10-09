@@ -433,3 +433,9 @@ extension Observable where E == Int {
     }
 }
 ```
+
+# Importing a specific member of a framework
+
+```swift
+import struct FloSportsCore.Event
+```
