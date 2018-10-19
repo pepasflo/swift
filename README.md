@@ -437,3 +437,9 @@ extension Observable where E == Int {
 ```swift
 import struct FloSportsCore.Event
 ```
+
+# Limitations
+
+## You can't use a tuple as a dictionary key
+
+Turns out you can't implement `Hashable` on a tuple.  https://stackoverflow.com/a/24152255/7543271
