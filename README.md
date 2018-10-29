@@ -443,3 +443,9 @@ import struct FloSportsCore.Event
 ## You can't use a tuple as a dictionary key
 
 Turns out you can't implement `Hashable` on a tuple.  https://stackoverflow.com/a/24152255/7543271
+
+# Gotcha's
+
+## Call `removeFromSuperview` in addition to `removeArrangedSubview`
+
+https://stackoverflow.com/a/52718219/7543271
